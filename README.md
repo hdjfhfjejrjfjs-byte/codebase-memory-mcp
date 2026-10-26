@@ -105,6 +105,8 @@ Options: `--skip-config` (binary only, no agent setup), `--dir=<path>` (custom l
 
 Restart your coding agent. Say **"Index this project"**: done.
 
+**Claude Code plugin:** `/plugin marketplace add https://github.com/hdjfhfjejrjfjs-byte/codebase-memory-mcp` then `/plugin install codebase-memory-mcp` (see [Install as a Claude Code plugin](#install-as-a-claude-code-plugin)).
+
 <details>
 <summary>Manual install</summary>
 
@@ -571,6 +573,17 @@ nix build github:DeusData/codebase-memory-mcp#codebase-memory-mcp-ui   # with UI
 Working in a clone? Use `.` in place of the flake URL, e.g. `nix run .#codebase-memory-mcp-ui -- --ui=true`, or drop into a shell that puts the binary on `PATH` with `nix shell .#codebase-memory-mcp-ui`.
 
 > **Note:** launched by hand (not from an MCP client) the server exits as soon as `stdin` closes; that's normal MCP behaviour. Keep `stdin` open while testing the UI, e.g. `sleep infinity | codebase-memory-mcp --ui=true --port=9749`. The `codebase-memory-mcp-ui` package embeds the UI at build time; `nix run`'ing the standard `default` package with `--ui=true` will refuse to start the HTTP server.
+
+### Install as a Claude Code plugin
+
+This repository is also a Claude Code plugin marketplace. In Claude Code run:
+
+```
+/plugin marketplace add https://github.com/hdjfhfjejrjfjs-byte/codebase-memory-mcp
+/plugin install codebase-memory-mcp
+```
+
+The plugin registers the `codebase-memory-mcp` MCP server via `npx -y codebase-memory-mcp@0.12.1` (requires Node.js >= 18; the npm package downloads and verifies the native binary on first run). Restart Claude Code afterwards, then say **"Index this project"**. This only registers the MCP server; run `codebase-memory-mcp install` separately if you also want the skills, agent profiles and hooks.
 
 ### Install via Claude Code
 
