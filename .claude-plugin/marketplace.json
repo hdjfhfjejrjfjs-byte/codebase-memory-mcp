@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "codebase-memory-mcp",
+  "description": "Marketplace for the codebase-memory-mcp Claude Code plugin",
+  "owner": { "name": "hdjfhfjejrjfjs-byte" },
+  "plugins": [
+    {
+      "name": "codebase-memory-mcp",
+      "description": "Registers the codebase-memory-mcp MCP server (persistent code knowledge graph, 17 MCP tools) in Claude Code",
+      "version": "0.12.1",
+      "source": "./",
+      "category": "development",
+      "homepage": "https://github.com/hdjfhfjejrjfjs-byte/codebase-memory-mcp",
+      "tags": ["mcp", "code-intelligence", "knowledge-graph"]
+    }
+  ]
+}
